@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Lobby from './Lobby';
+import Room from './Room';
 
 const VideoChat = () => {
   const [username, setUsername] = useState('');
@@ -52,11 +53,11 @@ const VideoChat = () => {
   
   return (
     accessToken?.secret_key ?
-      <div>
-        <p>Username: {username}</p>
-        <p>Room name: {roomName}</p>
-        <p>AccessToken: {JSON.stringify(accessToken)}</p>
-      </div>  
+      <Room 
+        roomName={roomName}
+        token={token}
+        handleLogout={handleLogout}
+      />
     :
       <Lobby
         username={username}
