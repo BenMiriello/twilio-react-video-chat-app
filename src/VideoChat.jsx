@@ -14,10 +14,6 @@ const VideoChat = () => {
     setApiToken('HVU7fUYwfvwDaNbGBTFaLpwh');
     // setApiToken(urlParam('api_token'));
   }, []);
-
-  useEffect(() => {
-    console.log(accessToken);
-  }, [accessToken])
     
   const handleUsernameChange = useCallback(event => {
     setUsername(event.target.value);
@@ -55,7 +51,7 @@ const VideoChat = () => {
     accessToken?.secret_key ?
       <Room 
         roomName={roomName}
-        token={token}
+        accessToken={accessToken}
         handleLogout={handleLogout}
       />
     :
